@@ -187,15 +187,14 @@ class _GridContentState extends State<GridContent>
       RefreshController(initialRefresh: false);
   final List<String> _imageUrls = List.generate(
     550,
-
-    /// 图片很大，每次都会重新加载
-    (index) =>
-        // 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/61/8a/51/picture-lake.jpg?w=1400&h=800&s=1&hahahahah=$index',
-        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/61/8a/51/picture-lake.jpg?w=600&h=600&s=1&hahahahah=${DateTime.now()}',
-
-    /// 图片比较小，上下滑动和回到这个页面不会重新加载
-    // 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/61/8a/51/picture-lake.jpg?w=400&h=200&s=1&hahahahah=$index',
-    // 'https://loremflickr.com/100/100/music?lock=$index',
+    (index) {
+      final img = imagesList[index % imagesList.length];
+      if (img.endsWith('.jpg')) {
+        return '$img?hahahahah=${DateTime.now()}';
+      } else {
+        return '$img&hahahahah=${DateTime.now()}';
+      }
+    },
   );
 
   @override
@@ -265,7 +264,8 @@ class _GridContentState extends State<GridContent>
         child: ListView.builder(
           addRepaintBoundaries: true,
           addAutomaticKeepAlives: true,
-          cacheExtent: 1000, // Cache more items
+          cacheExtent: 1000,
+          // Cache more items
           // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           //   crossAxisCount: 2,
           //   mainAxisSpacing: 8.0,
@@ -322,3 +322,30 @@ class _GridContentState extends State<GridContent>
     );
   }
 }
+
+const imagesList = [
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/61/8a/53/my-pup.jpg?w=1400&h=800&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/95/59/ab/edit.jpg?w=1100&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/01/bd/a3/see-two-for-the-price.jpg?w=1400&h=800&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/f8/5c/05/picture-lake.jpg?w=900&h=500&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/c2/d2/63/photo0jpg.jpg?w=1400&h=800&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/d7/88/98/picture-lake-5.jpg?w=1100&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/d7/88/62/picture-lake-4.jpg?w=1400&h=800&s=1',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/07/3b/f6/fc.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/07/3b/f6/f3.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/07/3b/f6/e5.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/f6/d6/c2.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/f6/d7/6e.jpg',
+  'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/0f/f6/d5/bf.jpg',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/36/8a/5c/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/36/86/73/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/f5/23/1f/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/c1/50/41/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/19/3e/94/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/f7/f3/38/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/24/74/91/94/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/c1/03/41/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/86/68/ef/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/57/fd/38/caption.jpg?w=600&h=600&s=1',
+  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/17/55/4d/caption.jpg?w=600&h=600&s=1',
+];
