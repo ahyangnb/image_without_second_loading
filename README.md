@@ -1,3 +1,6 @@
+# Q1
+图片将不会显示loading效果【如果图片加载过】。
+
 # Cached network image
 [![pub package](https://img.shields.io/pub/v/cached_network_image.svg)](https://pub.dartlang.org/packages/cached_network_image)
 [![codecov](https://codecov.io/gh/Baseflow/flutter_cached_network_image/branch/main/graph/badge.svg?token=I5qW0RvoXN)](https://codecov.io/gh/Baseflow/flutter_cached_network_image)
