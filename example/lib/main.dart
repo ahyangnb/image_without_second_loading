@@ -277,13 +277,16 @@ class _GridContentState extends State<GridContent>
             final imgUrl = _imageUrls[index];
             return InkWell(
               /// 不会重新loading
-              // child: Image.network(imgUrl,
-              //     width: 200,
-              //     height: 200,
-              //   cacheWidth: 200,
-              //   cacheHeight: 200,
-              //     gaplessPlayback: true,
-              // ),
+              child: Image.network(
+                imgUrl,
+                width: 200,
+                height: 200,
+                // 重要：cacheWidth和cacheHeight设置之后在列表图片不会重复加载。
+                cacheWidth: 200,
+                cacheHeight: 200,
+                gaplessPlayback: true,
+              ),
+
               /// -------------------------
               /// 会重新loading
               // child: CachedNetworkImage(imageUrl:
@@ -293,12 +296,12 @@ class _GridContentState extends State<GridContent>
               // ),
               /// -------------------------
               /// 不会重新loading，直接显示
-              child: NetworkImageWidget(
-                url: imgUrl,
-                index: index,
-                width: 600,
-                height: 600,
-              ),
+              // child: NetworkImageWidget(
+              //   url: imgUrl,
+              //   index: index,
+              //   width: 600,
+              //   height: 600,
+              // ),
               onTap: () {
                 Navigator.of(context)
                     .push(CupertinoPageRoute(builder: (context) {
