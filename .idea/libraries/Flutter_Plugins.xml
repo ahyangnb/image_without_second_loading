@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/path_provider_linux-2.2.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/path_provider_android-2.2.15" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/path_provider_windows-2.3.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/sqflite_android-2.4.0" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/sqflite-2.4.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/path_provider_foundation-2.4.1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/sqflite_darwin-2.4.1+1" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub-web.flutter-io.cn/path_provider-2.1.5" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

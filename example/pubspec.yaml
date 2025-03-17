@@ -1,0 +1,28 @@
+name: example
+description: A project that showcases usage of cached_network_image
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.0.0
+  flutter: '>=3.10.0'
+
+dependencies:
+  baseflow_plugin_template: ^2.2.0
+  cached_network_image:
+    path: ../
+  flutter_cache_manager: ^3.4.1
+  flutter:
+    sdk: flutter
+  flutter_blurhash: ^0.8.2
+  pull_to_refresh: ^2.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
