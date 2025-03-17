@@ -146,8 +146,8 @@ class _NetworkImageWidgetState extends State<NetworkImageWidget>
     if (_isLoaded && _cachedProvider != null) {
       Widget imageWidget = Image(
         image: _cachedProvider!,
-        width: widget.width ?? 200,
-        height: widget.height ?? 200,
+        width: widget.width ?? 600,
+        height: widget.height ?? 600,
         fit: widget.fit,
         gaplessPlayback: true,
         isAntiAlias: true,
@@ -262,16 +262,16 @@ class _GridContentState extends State<GridContent>
         controller: _refreshController,
         onRefresh: _onRefresh,
         onLoading: _onLoading,
-        child: GridView.builder(
-          // addRepaintBoundaries: true,
-          // addAutomaticKeepAlives: true,
-          // cacheExtent: 1000, // Cache more items
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 8.0,
-            crossAxisSpacing: 8.0,
-            childAspectRatio: 1.0,
-          ),
+        child: ListView.builder(
+          addRepaintBoundaries: true,
+          addAutomaticKeepAlives: true,
+          cacheExtent: 1000, // Cache more items
+          // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //   crossAxisCount: 2,
+          //   mainAxisSpacing: 8.0,
+          //   crossAxisSpacing: 8.0,
+          //   childAspectRatio: 1.0,
+          // ),
           itemCount: _imageUrls.length,
           itemBuilder: (BuildContext context, int index) {
             final imgUrl = _imageUrls[index];
@@ -279,11 +279,11 @@ class _GridContentState extends State<GridContent>
               /// 不会重新loading
               child: Image.network(
                 imgUrl,
-                width: 200,
-                height: 200,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width,
                 // 重要：cacheWidth和cacheHeight设置之后在列表图片不会重复加载。
-                cacheWidth: 200,
-                cacheHeight: 200,
+                cacheWidth: MediaQuery.of(context).size.width.toInt(),
+                cacheHeight: MediaQuery.of(context).size.width.toInt(),
                 gaplessPlayback: true,
               ),
 
